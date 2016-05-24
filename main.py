@@ -8,12 +8,18 @@ students = [
   {"name": "Jane", "grades": [{"topic": "French", "mark": 18}, {"topic": "Math", "mark": 9}]},
   {"name": "Toto", "grades": [{"topic": "French", "mark": 8}, {"topic": "Math", "mark": 5}]}
 ]
-
+@app.route("/eleves/")
+def get_liste_eleves():
+	eleves = json.loads(students)
+	liste_eleves = eleves['name']
+	
 
 @app.route("/")
 def hello():
-  return "Hello the world!"
+  return  '<html><head><title>Bienvenue</title></head><body>Découvrez <a href="/products/">nos produits</a>.</body></html>'
 
+@app.route("/products/")
+def products():
+    return  '<html><head>    <title>Products</title></head><body>    <ul><li>Pear</li><li>Apple</li><li>…</li></ul></body></html>'
 if __name__ == "__main__":
-  app.debug=True
-  app.run()
+    app.run()
