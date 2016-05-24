@@ -9,9 +9,6 @@ students = [
   {"name": "Toto", "grades": [{"topic": "French", "mark": 8}, {"topic": "Math", "mark": 5}]}
 ]
 
-@app.route("/eleves/")
-def products():
-  
 
 @app.route("/")
 def hello():
