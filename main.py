@@ -1,20 +1,22 @@
+# -*- coding: utf-8 -*-
 import json
-from flask import Flask, make_response, request
+from flask import Flask
 app = Flask(__name__)
-products = ["Pear", "Apple"]
-@app.route("/products/")
+
+students = [
+  {"name": "John", "grades": [{"topic": "French", "mark": 12}, {"topic": "Math", "mark": 16}]},
+  {"name": "Jane", "grades": [{"topic": "French", "mark": 18}, {"topic": "Math", "mark": 9}]},
+  {"name": "Toto", "grades": [{"topic": "French", "mark": 8}, {"topic": "Math", "mark": 5}]}
+]
+
+@app.route("/eleves/")
 def products():
-    resp = make_response(json.dumps(products), 200)
-    resp.headers['Content-Type'] = 'application/json'
-    return  resp
-@app.route("/products/", methods=["POST"])
-def products_add():
-    global products
-    prod = request.get_json()
-    products.append(prod)
-    resp = make_response("True", 201)
-    resp.headers['Content-Type'] = 'application/json'
-    resp.headers['Location'] = '/products/%d' % (len(products) - 1)
-    return  resp
+  
+
+@app.route("/")
+def hello():
+  return "Hello the world!"
+
 if __name__ == "__main__":
-    app.run()
+  app.debug=True
+  app.run()
