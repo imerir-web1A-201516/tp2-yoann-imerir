@@ -16,7 +16,7 @@ def get_liste_eleves():
 
 @app.route("/")
 def hello():
-  return  '<html><head><title>Bienvenue</title></head><body>Découvrez <a href="/products/">nos produits</a>.</body></html>'
+  return  '<html><head><title>Bienvenue</title></head><body>Découvrez <a href="/products/">nos produits</a>.<br> <a href="/eleves/">Eleves</a></body></html>'
 
 @app.route("/products/")
 def products():
